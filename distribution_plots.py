@@ -1,6 +1,10 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
 def make_plots(data):
     '''
-    Returns and displays the bar plots for categorical features and histograms for continuous valued features
+    Returns and displays the bar plots for categorical features and histograms for continuous-valued features
     
     Parameters:
     data: pd.DataFrame object
