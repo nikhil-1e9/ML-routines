@@ -26,3 +26,16 @@ def objective(trial):
     # Evaluate predictions
     accuracy = accuracy_score(y_test, y_pred)
     return accuracy
+
+study = optuna.create_study(direction='maximize')
+study.optimize(objective, n_trials=100)
+
+print('Number of finished trials: {}'.format(len(study.trials)))
+print('Best trial:')
+trial = study.best_trial
+
+print('  Value: {}'.format(trial.value))
+print('  Params: ')
+
+for key, value in trial.params.items():
+    print('    {}: {}'.format(key, value))
