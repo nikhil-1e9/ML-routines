@@ -1,3 +1,7 @@
+import optuna
+from xgboost import XGBClassifier
+from sklearn.metrics import accuracy_score
+
 def objective(trial):
     """Define the objective function"""
     
@@ -12,7 +16,7 @@ def objective(trial):
         'colsample_bytree': trial.suggest_loguniform('colsample_bytree', 0.01, 1.0),
         'reg_alpha': trial.suggest_loguniform('reg_alpha', 1e-8, 1.0),
         'reg_lambda': trial.suggest_loguniform('reg_lambda', 1e-8, 1.0),
-        'eval_metric': 'mlogloss',
+        'eval_metric': 'auc',
         'use_label_encoder': False
     }
 
